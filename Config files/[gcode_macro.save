@@ -1,0 +1,18 @@
+# Add a parameter at the top, with default value 1 (purge).
+default_parameter_PURGE: 1
+
+# ...
+
+gcode:
+      # ...
+
+      # Replace the "if" condition around the purge section in the macro as follows.
+
+      ## Check if user enabled purge option or not.
+      {% if params.PURGE|int == 1 %}
+      
+        # ... perform the purge ...
+      
+      {% endif %}
+      
+      # ...
